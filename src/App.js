@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import Menu from "./Components/UI/Menu";
+import Users from "./Components/Pages/Users";
+import Home from "./Components/Pages/Home";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [optstate, setOptState] = useState("");
+
+  const MenuHandler = (update) => {
+    console.log("Update -- > ", update);
+    setOptState(update);
+  };
+  if (optstate === "Users") {
+    return (
+      <div className="App">
+        <React.Fragment>
+          <Menu onSelectedMenu={MenuHandler} />
+          <Users />
+        </React.Fragment>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <React.Fragment>
+          <Menu onSelectedMenu={MenuHandler} />
+          <Home />
+        </React.Fragment>
+      </div>
+    );
+  }
 }
 
 export default App;

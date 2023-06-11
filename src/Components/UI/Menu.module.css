@@ -1,0 +1,18 @@
+.menu {
+    background-color: #1F1F1F;
+    color: white;
+    margin: auto;
+}
+
+.ul_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 20px;
+}
+
+.li_menu {
+    padding: 0px 15px;
+    cursor: pointer;
+}
